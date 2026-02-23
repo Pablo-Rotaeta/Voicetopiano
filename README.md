@@ -46,8 +46,8 @@ project/
 │       ├── note_A3.wav       # Individual piano note recordings
 │       ├── note_B3.wav
 │       └── ...
-├── 
-└── 
+├── speech_as_piano.wav (DEMO)
+└── download_iowa_piano.py (USE TO DOWNLOAD THE CORPUS)
 ```
 
 ### Corpus Requirements
@@ -61,8 +61,9 @@ project/
 
 ## Usage
 
+0. Use download_iowa_piano.py script to download the corpus and convert it to the right format (WAV).
 1. Place your speech file at `target/speech.wav`
-2. Place piano note WAVs in `corpus/piano/`
+2. Place piano note WAVs in `corpus/piano/` (Make sure the right output from the Step 0. is in the right folder).
 3. Run:
 
 ```bash
@@ -81,14 +82,14 @@ All parameters are at the top of `speech_to_piano.py`:
 
 | Parameter | Default | Description |
 |---|---|---|
-| `NOTE_RATE` | `0.08` | How often a new note triggers (seconds). Lower = denser, more notes. |
-| `NOTE_DURATION` | `0.35` | Max length of each played note (seconds). Should be ≥ `NOTE_RATE` for legato. |
+| `NOTE_RATE` | `0.20` | How often a new note triggers (seconds). Lower = denser, more notes. |
+| `NOTE_DURATION` | `0.5` | Max length of each played note (seconds). Should be ≥ `NOTE_RATE` for legato. |
 | `SILENCE_THRESH` | `0.003` | RMS below which frames are skipped. Very low — only skips true silence. |
-| `PITCH_WEIGHT` | `8.0` | How much pitch accuracy influences note matching. |
+| `PITCH_WEIGHT` | `9.0` | How much pitch accuracy influences note matching. |
 | `MFCC_WEIGHT` | `1.0` | How much timbral similarity influences matching. |
 | `CENTROID_WEIGHT` | `1.5` | How much spectral brightness influences matching. |
-| `NO_REPEAT_WINDOW` | `4` | Number of recent notes to penalise for reuse. |
-| `NO_REPEAT_PENALTY` | `3.0` | How strongly to penalise recently used notes. |
+| `NO_REPEAT_WINDOW` | `1` | Number of recent notes to penalise for reuse. |
+| `NO_REPEAT_PENALTY` | `1.0` | How strongly to penalise recently used notes. |
 | `CREPE_CONF_THRESH` | `0.40` | Minimum torchcrepe confidence to use a pitch estimate. |
 | `SMOOTH_FRAMES` | `5` | Pitch smoothing window (frames). Higher = smoother melody. |
 
