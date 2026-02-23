@@ -38,15 +38,15 @@ pip install librosa soundfile scipy tqdm numpy torch torchcrepe torchaudio
 
 ```
 project/
-├── speech_to_piano.py        # Main script
+├── speech_to_piano.py          # Main script
 ├── target/
-│   └── speech.wav            # Your input speech file
+│   └── speech.wav (DEMO)       # Your input speech file
 ├── corpus/
 │   └── piano/
-│       ├── note_A3.wav       # Individual piano note recordings
+│       ├── note_A3.wav         # Individual piano note recordings
 │       ├── note_B3.wav
 │       └── ...
-├── speech_as_piano.wav (DEMO)
+├── speech_as_piano.wav (DEMO)  # Main audible output
 └── download_iowa_piano.py (USE TO DOWNLOAD THE CORPUS)
 ```
 
